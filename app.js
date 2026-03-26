@@ -5,7 +5,7 @@ const hero = createElement("div", {
 });
 const title = createElement("div", {
     parent: hero,
-    id: "title",
+    innerHTML: "CALL TO ACTION"
 });
 
 // MAIN
@@ -21,6 +21,9 @@ function createElement(tag, options = {}) {
     }
     if (typeof options.id === "string") {
         element.id = options.id;
+    }
+    if (typeof options.innerHTML === "string") {
+        element.innerHTML = options.innerHTML;
     }
     return element;
 }
