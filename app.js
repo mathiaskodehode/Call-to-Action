@@ -15,6 +15,8 @@ function createElement(tag, options = {}) {
     const element = document.createElement(tag);
     if (options.parent instanceof HTMLElement) {
         options.parent.appendChild(element);
+    } else {
+        document.body.appendChild(element);
     }
     if (typeof options.class === "string") {
         element.classList.add(options.class);
