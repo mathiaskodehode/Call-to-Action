@@ -1,16 +1,21 @@
 // VARIABLES
 const hero = createElement("div", {
     class: "hero",
+    parent: document.body,
 });
 
 // MAIN
-document.body.appendChild(hero);
+
+console.log(typeof document.body);
 
 // FUNCTIONS
-function createElement(tag, attributes = null) {
+function createElement(tag, options = {}) {
     const element = document.createElement(tag);
-    if (attributes.class?.toString()) {
-        element.classList.add(attributes.class);
+    if (typeof options.class === "string") {
+        element.classList.add(options.class);
+    }
+    if (options.parent instanceof HTMLElement) {
+        options.parent.appendChild(element);
     }
     return element;
 }
