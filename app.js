@@ -41,6 +41,9 @@ function createElement(tag, options = {}) {
     if (typeof options.innerText === "string") {
         element.innerText = options.innerText;
     }
+    if (typeof options.innerHTML === "string") {
+        element.innerHTML = options.innerHTML;
+    }
     if (typeof options.src === "string") {
         element.src = options.src;
     }
