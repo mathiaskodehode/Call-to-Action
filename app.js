@@ -8,15 +8,15 @@ const textContainer = createElement("div", {
 });
 const title = createElement("h1", {
     parent: textContainer,
-    innerHTML: "CALL TO ACTION",
+    innerText: "CALL TO ACTION",
 });
 const text = createElement("p", {
     parent: textContainer,
-    innerHTML: "You will never think about this the same again...",
+    innerText: "You will never think about this the same again...",
 });
 const button = createElement("button", {
     parent: textContainer,
-    innerHTML: "BUY NOW",
+    innerText: "BUY NOW",
 });
 const productImage = createElement("img", {
     parent: hero,
@@ -38,8 +38,8 @@ function createElement(tag, options = {}) {
     if (typeof options.id === "string") {
         element.id = options.id;
     }
-    if (typeof options.innerHTML === "string") {
-        element.innerHTML = options.innerHTML;
+    if (typeof options.innerText === "string") {
+        element.innerText = options.innerText;
     }
     if (typeof options.src === "string") {
         element.src = options.src;
