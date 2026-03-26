@@ -1,14 +1,28 @@
 // VARIABLES
 const hero = createElement("div", {
-    parent: document.body,
     class: "hero",
 });
-const title = createElement("div", {
+const textContainer = createElement("div", {
+    class: "textContainer",
     parent: hero,
-    innerHTML: "CALL TO ACTION"
 });
-
-// MAIN
+const title = createElement("h1", {
+    parent: textContainer,
+    innerHTML: "CALL TO ACTION",
+});
+const text = createElement("p", {
+    parent: textContainer,
+    innerHTML: "You will never think about this the same again...",
+});
+const button = createElement("button", {
+    parent: textContainer,
+    innerHTML: "BUY NOW",
+});
+const productImage = createElement("img", {
+    parent: hero,
+    src: "./images/temp.png",
+    alt: "placeholder",
+});
 
 // FUNCTIONS
 function createElement(tag, options = {}) {
@@ -26,6 +40,12 @@ function createElement(tag, options = {}) {
     }
     if (typeof options.innerHTML === "string") {
         element.innerHTML = options.innerHTML;
+    }
+    if (typeof options.src === "string") {
+        element.src = options.src;
+    }
+    if (typeof options.alt === "string") {
+        element.alt = options.alt;
     }
     return element;
 }
