@@ -1,19 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    --fontSize: 2vw;
-    --fontSizeH1: 4vw;
+    --backgroundImageHero: url(./images/gambling.png);
+    --fontSizeDefault: 1.75vw;
+    --fontSizeDefaultMobile: 3vw;
+    --fontSizeH1: 3vw;
+    --fontSizeH1Mobile: 5vw;
+    --fontSizeH2: 2.25vw;
+    --fontSizeH2Mobile: 8vw;
+    --fontSizeButton: 1.5vw;
+    --fontSizeButtonMobile: 2.5vw;
 }
 
-body {
+* {
+    font-family: "Roboto";
     margin: 0;
     padding: 0;
+    /* outline: blue 1px solid; */
+}
+
+
+body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-size: var(--fontSize);
+    background-color: #fff;
+    height: auto;
 }
 
 h1 {
     font-size: var(--fontSizeH1);
+}
+
+h2 {
+    font-size: var(--fontSizeH2);
+}
+
+p {
+    font-size: var(--fontSizeDefault);
 }
 
 .hero {
@@ -23,26 +47,120 @@ h1 {
     justify-content: center;
     width: 80%;
     gap: 5vw;
+    background-color: #600;
+    /* background-image: var(--backgroundImageHero); */
+    box-shadow: 0 0 4vw 2vw #0008;
+    padding: 3.2vw;
+    color: #fff;
 }
 
 .hero .textContainer {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
+    gap: 1vw;
 }
 
-.hero .productImageContainer {
+.hero .productImage {
+    background-image: var(--backgroundImageHero);
     width: 40%;
+    height: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero .productImageContainer img {
-    width: 90%;
+.hero .productImage h2,
+.hero .productImage p {
+    text-align: center;
+    backdrop-filter: blur(4px);
 }
 
-button {
+.hero .textContainer .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 1vw;
+}
+
+.hero .textContainer .buttonContainer button {
     background-color: green;
+    border: .1vw red solid;
+    color: #fff;
+    font-size: var(--fontSizeButton);
+    padding: 0 .1vw;
+    height: 5vw;
+    border-radius: 2px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
-.buttonColour {
+.hero .textContainer .buttonContainer button:hover {
+    transform: translateY(-5px);
+}
+
+#buyButton {
+    width: 35%;
+}
+
+#signUpButton {
+    background-color: rgb(0, 100, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1vw;
+    font-size: var(--fontSizeButton);
+    padding-right: 2vw;
+    padding-left: .3vw;
+    border: none;
+}
+
+#signUpButtonIcon {
+    border-radius: 2px;
+    height: 90%;
+    order: -1;
+}
+
+.hero .textContainer .buttonContainer .buttonColourOverride {
     background-color: red;
+    border: .1vw green solid;
+}
+
+.linethrough {
+    text-decoration: line-through;
+}
+
+@media (max-width: 700px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero .productImage {
+        width: 100%;
+        height: 30vh;
+        order: -1;
+    }
+
+    .hero .textContainer {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: var(--fontSizeH1Mobile);
+    }
+
+    h2 {
+        font-size: var(--fontSizeH2Mobile);
+    }
+
+    p {
+        font-size: var(--fontSizeDefaultMobile);
+    }
+
+    .productImage p {
+        font-size: var(--fontSizeH1Mobile);
+    }
 }
