@@ -14,17 +14,36 @@ const text = createElement("p", {
     parent: textContainer,
     innerText: "You will never think about this the same again...",
 });
+const buttonTexts = ["BUY NOW", "DOT NOT MISS", "LAST CHANCE", "GONE SOON"];
+let nextButtonTextsIndex = 0;
 const button = createElement("button", {
     parent: textContainer,
-    innerText: "BUY NOW",
+    innerText: buttonTexts[nextButtonTextsIndex++],
+});
+const productImageContainer = createElement("div", {
+    parent: hero,
+    class: "productImageContainer",
 });
 const productImage = createElement("img", {
-    parent: hero,
+    parent: productImageContainer,
     src: "./images/temp.png",
     alt: "placeholder",
 });
 
+// MAIN
+addButtonEffects();
+
 // FUNCTIONS
+function addButtonEffects() {
+    setInterval(() => {
+        button.classList.toggle("buttonColour");
+    }, 200);
+    setInterval(() => {
+        button.innerText =
+            buttonTexts[nextButtonTextsIndex++ % buttonTexts.length];
+    }, 600);
+}
+
 function createElement(tag, options = {}) {
     const element = document.createElement(tag);
     if (options.parent instanceof HTMLElement) {
